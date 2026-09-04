@@ -1,4 +1,4 @@
-// JS Basics 1 - Variables & Data Types
+// JS Basics 1 - Variables & Data Types 
 
 // let: value can change later
 let score = 10;
@@ -9,6 +9,7 @@ const playerName = "Ayaan";
 
 // var: old style, avoid in new code
 var old = "legacy";
+var set = "set";
 
 // Data types
 let age = 25;            // number
