@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid vs Flexbox</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <h1>CSS Grid vs Flexbox</h1>
+    <p class="intro">The same layout built three ways to see the difference.</p>
+
+    <section class="demo">
+        <h2>1. Toolbar (best with Flexbox)</h2>
+        <p>One-dimensional row of items - a natural flexbox case.</p>
+
+        <div class="toolbar-flex">
+            <div class="item">Logo</div>
+            <div class="item">Link</div>
+            <div class="item">Link</div>
+        </div>
+    </section>
+
+    <section class="demo">
+        <h2>2. Card gallery (best with Grid)</h2>
+        <p>2D alignment in both rows and columns - a natural grid case.</p>
+
+        <div class="gallery-grid">
+            <div class="card">1</div>
+            <div class="card">2</div>
+            <div class="card">3</div>
+            <div class="card">4</div>
+            <div class="card">5</div>
+            <div class="card">6</div>
+            <div class="card">7</div>
+            <div class="card">8</div>
+        </div>
+    </section>
+
+    <section class="demo">
+        <h2>3. Same layout: Flexbox</h2>
+        <p>Header nav built with row flex + stretch.</p>
+        <div class="flex-layout">
+            <div class="f-head">Header</div>
+            <div class="f-body">
+                <div class="f-side">Sidebar</div>
+                <div class="f-main">Main</div>
+            </div>
+            <div class="f-foot">Footer</div>
+        </div>
+    </section>
+
+    <section class="demo">
+        <h2>4. Same layout: Grid</h2>
+        <p>Same result with one grid declaration using areas.</p>
+        <div class="grid-layout">
+            <div class="g-head">Header</div>
+            <div class="g-side">Sidebar</div>
+            <div class="g-main">Main</div>
+            <div class="g-foot">Footer</div>
+        </div>
+    </section>
+
+    <table class="compare">
+        <tr>
+            <th></th>
+            <th>Flexbox</th>
+            <th>Grid</th>
+        </tr>
+        <tr>
+            <td>Dimension</td>
+            <td>1D (row OR column)</td>
+            <td>2D (rows AND columns)</td>
+        </tr>
+        <tr>
+            <td>Content vs layout</td>
+            <td>Content-driven sizing</td>
+            <td>Layout-first sizing</td>
+        </tr>
+        <tr>
+            <td>Use for</td>
+            <td>Toolbars, nav, centering</td>
+            <td>Page layouts, card grids</td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotable API</title>
+    <link rel="stylesheet" href="quote.css">
+</head>
+<body>
+
+    <main class="quote-app">
+        <h1>Random Quote Generator</h1>
+        <p class="sub">Quotes fetched live from the Quotable API.</p>
+
+        <div id="quote-box" class="quote-box">
+            <blockquote id="quote-text">Loading a quote...</blockquote>
+            <cite id="quote-author">&mdash; unknown</cite>
+        </div>
+
+        <div class="controls">
+            <button id="new-quote">New Quote</button>
+            <button id="save-quote">Save Favourite</button>
+        </div>
+
+        <button id="show-saved">Show Saved Quotes</button>
+        <ul id="saved-list" class="hidden"></ul>
+    </main>
+
+    <script src="quote.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transition</title>
+    <link rel="stylesheet" href="transition.css">
+</head>
+<body>
+
+    <h1>CSS Transitions</h1>
+    <p class="hint">Hover any box to see the transition run.</p>
+
+    <div class="demo">
+        <h2>1. Simple transition</h2>
+        <p>Background + transform over 0.4s.</p>
+        <div class="box box-1">Hover me</div>
+    </div>
+
+    <div class="demo">
+        <h2>2. Different easing</h2>
+        <p>See how timing functions change the motion.</p>
+        <div class="box ease ease-linear">linear</div>
+        <div class="box ease ease-ease">ease</div>
+        <div class="box ease ease-in">ease-in</div>
+        <div class="box ease ease-out">ease-out</div>
+        <div class="box ease ease-inout">ease-in-out</div>
+    </div>
+
+    <div class="demo">
+        <h2>3. Delay</h2>
+        <p>Motion starts after a 0.3s delay.</p>
+        <div class="box box-delay">0.3s delay</div>
+    </div>
+
+    <div class="demo">
+        <h2>4. Multiple properties</h2>
+        <p>Different durations per property.</p>
+        <div class="box box-multi">Hover me</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Basics - Functions</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 30px; background: #f4f4f4; }
+        code { background: #eee; padding: 2px 6px; border-radius: 4px; }
+        pre { background: #2c3e50; color: #ecf0f1; padding: 16px; border-radius: 8px; }
+        .out { background: #eafaf1; padding: 10px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <h1>JS Basics 4 - Functions</h1>
+    <p>Function declarations, arrow functions, parameters &amp; return values.</p>
+
+    <script>
+        // Function declaration (hoisted)
+        function greet(name) {
+            return "Hello, " + name + "!";
+        }
+
+        // Arrow function
+        const add = (a, b) => a + b;
+
+        // Arrow with body
+        const multiply = (a, b) => {
+            const product = a * b;
+            return product;
+        };
+
+        // Default parameters
+        function shout(text, loud = "!!") {
+            return text.toUpperCase() + loud;
+        }
+
+        // Anonymous function assigned to var
+        const square = function (n) {
+            return n * n;
+        };
+
+        const out = `
+            greet('Ayaan')  = ${greet('Ayaan')}
+            add(4, 7)        = ${add(4, 7)}
+            multiply(3, 5)   = ${multiply(3, 5)}
+            shout('hey')     = ${shout('hey')}
+            square(9)        = ${square(9)}
+        `;
+
+        document.write('<div class="out"><pre>' + out + '</pre></div>');
+        console.log(out);
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Practice</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <h1>CSS Grid Practice</h1>
+
+    <section class="demo">
+        <h2>1. Basic rows &amp; columns</h2>
+        <p>3 columns, 2 rows.</p>
+        <div class="grid-basic">
+            <div class="cell">1</div>
+            <div class="cell">2</div>
+            <div class="cell">3</div>
+            <div class="cell">4</div>
+            <div class="cell">5</div>
+            <div class="cell">6</div>
+        </div>
+    </section>
+
+    <section class="demo">
+        <h2>2. Fractional units (fr)</h2>
+        <p>Columns split proportionally.</p>
+        <div class="grid-fr">
+            <div class="cell">1fr</div>
+            <div class="cell">2fr</div>
+            <div class="cell">1fr</div>
+        </div>
+    </section>
+
+    <section class="demo">
+        <h2>3. Line-based placement (span)</h2>
+        <p>Items can span multiple tracks.</p>
+        <div class="grid-span">
+            <div class="cell header">Header</div>
+            <div class="cell sidebar">Sidebar</div>
+            <div class="cell main">Main</div>
+            <div class="cell footer">Footer</div>
+        </div>
+    </section>
+
+    <section class="demo">
+        <h2>4. Template areas</h2>
+        <p>Named regions laid out visually.</p>
+        <div class="grid-areas">
+            <div class="cell area-header">Header</div>
+            <div class="cell area-nav">Nav</div>
+            <div class="cell area-content">Content</div>
+            <div class="cell area-footer">Footer</div>
+        </div>
+    </section>
+
+    <section class="demo">
+        <h2>5. Auto-flow dense &amp; gap</h2>
+        <p>Items fill densely with gaps between.</p>
+        <div class="grid-gap">
+            <div class="cell">1</div>
+            <div class="cell">2</div>
+            <div class="cell wide">3 (wide)</div>
+            <div class="cell">4</div>
+            <div class="cell">5</div>
+            <div class="cell">6</div>
+        </div>
+    </section>
+
+    <section class="demo">
+        <h2>6. Card gallery</h2>
+        <p>Responsive cards using repeat(auto-fit, minmax()).</p>
+        <div class="grid-cards">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2</div>
+            <div class="card">Card 3</div>
+            <div class="card">Card 4</div>
+            <div class="card">Card 5</div>
+            <div class="card">Card 6</div>
+        </div>
+    </section>
+
+</body>
+</html>
