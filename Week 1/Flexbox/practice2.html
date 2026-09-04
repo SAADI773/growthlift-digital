@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Practice 2 - Layout Patterns</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef1f5;
+            padding: 40px;
+            color: #333;
+        }
+
+        .demo {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .demo h2 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .demo p {
+            color: #777;
+            font-size: 0.85rem;
+            margin-top: 0;
+        }
+
+        /* 1. Equal-width columns */
+        .equal-cols {
+            display: flex;
+            gap: 12px;
+        }
+
+        .equal-cols .card {
+            flex: 1;
+            background: #2ecc71;
+            color: #fff;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* 2. Holy grail: header / body / footer */
+        .page {
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header, .footer {
+            background: #34495e;
+            color: #fff;
+            padding: 14px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .body {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 150px;
+            background: #7f8c8d;
+            color: #fff;
+            padding: 14px;
+        }
+
+        .main {
+            flex: 1;
+            background: #ecf0f1;
+            padding: 14px;
+        }
+
+        /* 3. Ordering items */
+        .order-box {
+            display: flex;
+            gap: 12px;
+        }
+
+        .order-box .box {
+            background: #e67e22;
+            color: #fff;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .order-box .first { order: 1; background: #c0392b; }
+        .order-box .second { order: 2; background: #e67e22; }
+        .order-box .third { order: 3; background: #16a085; }
+
+        /* 4. Growing and shrinking */
+        .grow {
+            display: flex;
+            gap: 12px;
+        }
+
+        .grow .box {
+            background: #9b59b6;
+            color: #fff;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .grow .big { flex: 2; background: #8e44ad; }
+        .grow .small { flex: 1; }
+
+        /* 5. Wrapping into multiple rows */
+        .wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 420px;
+        }
+
+        .wrap .box {
+            background: #f39c12;
+            color: #fff;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            flex: 1 1 120px;
+        }
+
+        /* 6. Navigation bar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: #2c3e50;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 8px;
+        }
+
+        .navbar .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 14px;
+        }
+
+        .navbar .links span {
+            cursor: pointer;
+            opacity: 0.85;
+        }
+
+        .navbar .links span:hover {
+            opacity: 1;
+        }
+
+        .navbar .actions {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Flexbox Practice 2 - Real Layout Patterns</h1>
+
+    <div class="demo">
+        <h2>1. Equal-width card columns</h2>
+        <p>flex: 1 gives each child equal space.</p>
+        <div class="equal-cols">
+            <div class="card">Card A</div>
+            <div class="card">Card B</div>
+            <div class="card">Card C</div>
+            <div class="card">Card D</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>2. Holy grail layout</h2>
+        <p>Header pinned, body flexes, footer at bottom.</p>
+        <div class="page">
+            <div class="header">Header</div>
+            <div class="body">
+                <div class="sidebar">Sidebar</div>
+                <div class="main">Main content area</div>
+            </div>
+            <div class="footer">Footer</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>3. Reorder items with order</h2>
+        <p>Items appear in order of the order value, not DOM.</p>
+        <div class="order-box">
+            <div class="box third">3rd</div>
+            <div class="box first">1st</div>
+            <div class="box second">2nd</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>4. Growing and shrinking (flex)</h2>
+        <p>flex: 2 takes ~2x the space of flex: 1.</p>
+        <div class="grow">
+            <div class="box small">flex: 1</div>
+            <div class="box big">flex: 2</div>
+            <div class="box small">flex: 1</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>5. Wrapping into multiple rows</h2>
+        <p>flex-wrap: wrap lets items fill new lines.</p>
+        <div class="wrap">
+            <div class="box">Item</div>
+            <div class="box">Item</div>
+            <div class="box">Item</div>
+            <div class="box">Item</div>
+            <div class="box">Item</div>
+            <div class="box">Item</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>6. Navigation bar with margin-left: auto</h2>
+        <p>Logo left, links middle, actions pushed right.</p>
+        <div class="navbar">
+            <div class="logo">MY SITE</div>
+            <div class="links">
+                <span>Home</span>
+                <span>About</span>
+                <span>Contact</span>
+            </div>
+            <div class="actions">
+                Login | Sign Up
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

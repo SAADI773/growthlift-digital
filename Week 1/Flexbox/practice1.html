@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Practice 1 - Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+
+        .demo {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .demo h2 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .demo p {
+            color: #777;
+            font-size: 0.85rem;
+            margin-top: 0;
+        }
+
+        .box {
+            background: #3498db;
+            color: #fff;
+            border-radius: 4px;
+            padding: 16px;
+            text-align: center;
+            font-weight: 700;
+            min-width: 60px;
+        }
+
+        /* 1. Just flex */
+        .flex-basic {
+            display: flex;
+        }
+
+        /* 2. Row direction */
+        .row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* 3. Column direction */
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 4. Reverse row */
+        .row-reverse {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        /* 5. Justify: space-around */
+        .justify-around {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* 6. Justify: space-between */
+        .justify-between {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 7. Align items: center (cross axis) */
+        .align-center {
+            display: flex;
+            height: 80px;
+            align-items: center;
+        }
+
+        /* 8. Combined: center all */
+        .center-all {
+            display: flex;
+            height: 120px;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Flexbox Practice 1 - The Basics</h1>
+
+    <div class="demo">
+        <h2>1. display: flex (default row)</h2>
+        <p>Items laid out left to right automatically.</p>
+        <div class="flex-basic">
+            <div class="box">One</div>
+            <div class="box">Two</div>
+            <div class="box">Three</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>2. flex-direction: column</h2>
+        <p>Items stacked top to bottom.</p>
+        <div class="column">
+            <div class="box">One</div>
+            <div class="box">Two</div>
+            <div class="box">Three</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>3. flex-direction: row-reverse</h2>
+        <p>Items laid out right to left.</p>
+        <div class="row-reverse">
+            <div class="box">One</div>
+            <div class="box">Two</div>
+            <div class="box">Three</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>4. justify-content: space-around</h2>
+        <p>Space distributed around each item.</p>
+        <div class="justify-around">
+            <div class="box">One</div>
+            <div class="box">Two</div>
+            <div class="box">Three</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>5. justify-content: space-between</h2>
+        <p>Items pushed to the edges with even space between.</p>
+        <div class="justify-between">
+            <div class="box">One</div>
+            <div class="box">Two</div>
+            <div class="box">Three</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>6. align-items: center</h2>
+        <p>Items centered on the cross (vertical) axis.</p>
+        <div class="align-center">
+            <div class="box">One</div>
+            <div class="box">Two</div>
+            <div class="box">Three</div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <h2>7. Centering everything</h2>
+        <p>justify-content + align-items both centered.</p>
+        <div class="center-all">
+            <div class="box">Perfectly centered</div>
+        </div>
+    </div>
+
+</body>
+</html>

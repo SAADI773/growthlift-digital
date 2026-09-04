@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Portfolio & Admin Suite</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PORTFOLIO.CORE</div>
+        <button class="admin-nav-btn" onclick="openLogin()">Admin Portal</button>
+    </nav>
+
+    <header class="hero">
+        <h1>Meet the Core FrontEnd & Design Team</h1>
+        <p>A multi-disciplinary collective building high-impact digital experiences and modern architectures.</p>
+    </header>
+
+    <!-- Infinite Auto-Scrolling Section -->
+    <section class="marquee-section">
+        <div class="marquee-track" id="marqueeTrack"></div>
+    </section>
+
+    <!-- Admin Pin Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-card">
+            <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+            <h2>Admin Authentication</h2>
+            <p class="sub">Enter security passcode to manage team members.</p>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Passcode (Hint: 1234)</label>
+                    <input type="password" id="adminPasscode" placeholder="••••" required autofocus>
+                </div>
+                <button type="submit" class="btn-submit">Authenticate</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin CRUD Dashboard Modal -->
+    <div class="modal-overlay" id="adminModal">
+        <div class="modal-card admin-panel-card">
+            <button class="close-btn" onclick="closeModal('adminModal')">&times;</button>
+            <div class="crud-header">
+                <div>
+                    <h2>Team Operations Suite</h2>
+                    <p class="sub" style="margin-bottom: 0;">Add, update, or remove members in real-time.</p>
+                </div>
+                <button class="btn-logout" onclick="logoutAdmin()">Exit Admin</button>
+            </div>
+
+            <!-- Member Add/Edit Form -->
+            <form id="memberForm" onsubmit="handleSaveMember(event)" style="background: rgba(255,255,255,0.02); padding: 18px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 24px;">
+                <input type="hidden" id="memberId">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>Member Name</label>
+                        <input type="text" id="memberName" placeholder="e.g. Saad Hassan" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>Role / Specialization</label>
+                        <input type="text" id="memberRole" placeholder="e.g. Senior Developer" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit" id="formSubmitBtn" style="margin-top: 14px;">Add Member</button>
+            </form>
+
+            <!-- Active Members Table -->
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Initial</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th style="text-align: right;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="memberTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initial Dataset
+        let team = JSON.parse(localStorage.getItem('teamMembers')) || [
+            { id: 1, name: "Saad Hassan", role: "Senior Developer" },
+            { id: 2, name: "Manahil", role: "Coordinator" },
+            { id: 3, name: "Mahrukh", role: "FrontEnd Expert" },
+            { id: 4, name: "Eman & Iman", role: "FrontEnd Expert" }
+        ];
+
+        function syncStorage() {
+            localStorage.setItem('teamMembers', JSON.stringify(team));
+            renderMarquee();
+            renderTable();
+        }
+
+        // Render Infinite Marquee
+        function renderMarquee() {
+            const track = document.getElementById('marqueeTrack');
+            track.innerHTML = '';
+            
+            // Double the items array to allow smooth, uninterrupted infinite CSS scrolling
+            const loopList = [...team, ...team];
+            
+            loopList.forEach(m => {
+                const initial = m.name.charAt(0).toUpperCase();
+                const card = document.createElement('div');
+                card.className = 'member-card';
+                card.innerHTML = `
+                    <div class="avatar">${initial}</div>
+                    <div class="member-name">${escapeHtml(m.name)}</div>
+                    <div class="member-role">${escapeHtml(m.role)}</div>
+                `;
+                track.appendChild(card);
+            });
+        }
+
+        // Render Table in Admin CRUD Modal
+        function renderTable() {
+            const tbody = document.getElementById('memberTableBody');
+            tbody.innerHTML = '';
+
+            team.forEach(m => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>
+                        <div style="width: 28px; height: 28px; background: var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">
+                            ${m.name.charAt(0)}
+                        </div>
+                    </td>
+                    <td style="font-weight: 600;">${escapeHtml(m.name)}</td>
+                    <td style="color: var(--text-muted);">${escapeHtml(m.role)}</td>
+                    <td style="text-align: right;">
+                        <div class="action-btns" style="justify-content: flex-end;">
+                            <button class="btn-action btn-edit" onclick="startEdit(${m.id})">Edit</button>
+                            <button class="btn-action btn-delete" onclick="deleteMember(${m.id})">Delete</button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Authentication Handling
+        function openLogin() {
+            document.getElementById('loginModal').classList.add('active');
+            document.getElementById('adminPasscode').value = '';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const pin = document.getElementById('adminPasscode').value;
+            if (pin === '1234') {
+                closeModal('loginModal');
+                document.getElementById('adminModal').classList.add('active');
+                renderTable();
+            } else {
+                alert('Invalid Passcode! Try 1234');
+            }
+        }
+
+        function logoutAdmin() {
+            closeModal('adminModal');
+            resetForm();
+        }
+
+        // CRUD Operations
+        function handleSaveMember(e) {
+            e.preventDefault();
+            const id = document.getElementById('memberId').value;
+            const name = document.getElementById('memberName').value.trim();
+            const role = document.getElementById('memberRole').value.trim();
+
+            if (!name || !role) return;
+
+            if (id) {
+                // Update
+                team = team.map(m => m.id === parseInt(id) ? { ...m, name, role } : m);
+            } else {
+                // Create
+                team.push({ id: Date.now(), name, role });
+            }
+
+            syncStorage();
+            resetForm();
+        }
+
+        function startEdit(id) {
+            const member = team.find(m => m.id === id);
+            if (!member) return;
+
+            document.getElementById('memberId').value = member.id;
+            document.getElementById('memberName').value = member.name;
+            document.getElementById('memberRole').value = member.role;
+            document.getElementById('formSubmitBtn').textContent = 'Update Member';
+        }
+
+        function deleteMember(id) {
+            if (confirm('Are you sure you want to remove this member?')) {
+                team = team.filter(m => m.id !== id);
+                syncStorage();
+                resetForm();
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('memberId').value = '';
+            document.getElementById('memberName').value = '';
+            document.getElementById('memberRole').value = '';
+            document.getElementById('formSubmitBtn').textContent = 'Add Member';
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        // Initialize on load
+        renderMarquee();
+    </script>
+</body>
+</html>
