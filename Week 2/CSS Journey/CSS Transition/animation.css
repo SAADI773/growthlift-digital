@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+    padding: 40px;
+    color: #333;
+}
+
+.hint {
+    color: #888;
+}
+
+.demo {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* 1. Pulsing ball */
+.pulse {
+    width: 70px;
+    height: 70px;
+    background: #e74c3c;
+    border-radius: 50%;
+    animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+/* 2. Moving box */
+.moving {
+    width: 90px;
+    height: 90px;
+    background: #3498db;
+    border-radius: 8px;
+    animation: slide 2s ease 0s infinite;
+}
+
+@keyframes slide {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(240px); }
+    100% { transform: translateX(0); }
+}
+
+/* 3. Finite iterations (3 then pause) */
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 8px solid transparent;
+    border-top-color: #9b59b6;
+    border-radius: 50%;
+    animation: spin 1s linear 3;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* 4. alternate direction */
+.alt {
+    width: 90px;
+    height: 90px;
+    background: #2ecc71;
+    border-radius: 8px;
+    animation: altmove 1.6s ease-in-out infinite alternate;
+}
+
+@keyframes altmove {
+    from { transform: translateX(0) rotate(0deg); }
+    to   { transform: translateX(220px) rotate(180deg); }
+}

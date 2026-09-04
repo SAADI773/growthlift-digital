@@ -1,0 +1,20 @@
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "We can overcome obstacles with determination and a positive mindset",
+    "body": "When we face challenges, we must stay strong\nand keep moving forward\nEvery difficulty is an opportunity to grow\nRemember that even the toughest times will pass"
+  },
+  {
+    "userId": 1,
+    "id": 2,
+    "title": "The importance of self-reflection",
+    "body": "Taking time to reflect on our lives is essential\nWe should think about our choices and learn from them\nEvery experience teaches us valuable lessons\nThis helps us become better versions of ourselves"
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "How to stay calm and focused in difficult times",
+    "body": "Practice mindfulness and deep breathing\nFocus on what you can control\nLet go of things that are beyond your power\nRemember that peace comes from within"
+  }
+]

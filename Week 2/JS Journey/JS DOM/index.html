@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Practice</title>
+    <link rel="stylesheet" href="dom.css">
+</head>
+<body>
+
+    <header>
+        <h1>JavaScript DOM Manipulation</h1>
+        <p id="page-intro">Learn how to select, change, create, listen &amp; animate.</p>
+    </header>
+
+    <main>
+        <!-- Selecting -->
+        <section class="card">
+            <h2>1. Selecting Elements</h2>
+            <p id="select-id" class="highlight">I'm selected by ID.</p>
+            <p class="group-class">Selected by class (1st).</p>
+            <p class="group-class">Selected by class (2nd).</p>
+            <button onclick="selectDemo()">Run Selection</button>
+            <div id="select-out" class="output"></div>
+        </section>
+
+        <!-- Changing -->
+        <section class="card">
+            <h2>2. Changing Content &amp; Style</h2>
+            <p id="change-text">Original text</p>
+            <button onclick="changeDemo()">Run Change</button>
+        </section>
+
+        <!-- Creating -->
+        <section class="card">
+            <h2>3. Creating &amp; Appending Nodes</h2>
+            <ul id="list"></ul>
+            <button onclick="createDemo()">Add Items</button>
+        </section>
+
+        <!-- Events -->
+        <section class="card">
+            <h2>4. Events &amp; Events</h2>
+            <button id="event-btn">Hover / Click me</button>
+            <input id="input-box" type="text" placeholder="Type something">
+            <div id="event-out" class="output"></div>
+        </section>
+
+        <!-- Traversal -->
+        <section class="card">
+            <h2>5. Traversing the DOM</h2>
+            <div id="parent">
+                <span>child 1</span>
+                <span>child 2</span>
+                <span>child 3</span>
+            </div>
+            <button onclick="traverseDemo()">Run Traversal</button>
+            <div id="traverse-out" class="output"></div>
+        </section>
+    </main>
+
+    <script src="dom1.js"></script>
+    <script src="dom2.js"></script>
+    <script src="dom3.js"></script>
+    <script src="dom4.js"></script>
+    <script src="dom5.js"></script>
+
+</body>
+</html>

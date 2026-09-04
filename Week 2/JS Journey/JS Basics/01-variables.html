@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Basics - Variables</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 30px; background: #f4f4f4; }
+        code { background: #eee; padding: 2px 6px; border-radius: 4px; }
+        pre { background: #2c3e50; color: #ecf0f1; padding: 16px; border-radius: 8px; overflow-x: auto; }
+        .out { background: #eafaf1; padding: 10px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <h1>JS Basics 1 - Variables &amp; Data Types</h1>
+
+    <p>
+        <code>let</code> can be reassigned, <code>const</code> cannot.
+        <code>var</code> is the old way. Data types: number, string, boolean,
+        null, undefined, object, array.
+    </p>
+
+    <script>
+        // let: value can change later
+        let score = 10;
+        score = 20;
+
+        // const: value cannot be reassigned
+        const playerName = "Ayaan";
+
+        // var: old style, avoid in new code
+        var old = "legacy";
+
+        // Data types
+        let age = 25;            // number
+        let name = "Ayaan";      // string
+        let isActive = true;     // boolean
+        let nothing = null;      // null (explicitly nothing)
+        let notDefined;          // undefined
+        let hobbies = ["code", "read", "game"]; // array
+        let person = { first: "Ayaan", age: 25 }; // object
+
+        // typeof tells the type
+        const types = `
+            typeof score     = ${typeof score}
+            typeof name      = ${typeof name}
+            typeof isActive  = ${typeof isActive}
+            typeof nothing   = ${typeof nothing}
+            typeof notDefined= ${typeof notDefined}
+            typeof hobbies   = ${typeof hobbies}
+            typeof person    = ${typeof person}
+        `;
+
+        document.write('<div class="out">' + types.replace(/\n/g, '<br>') + '</div>');
+        console.log(types);
+    </script>
+</body>
+</html>

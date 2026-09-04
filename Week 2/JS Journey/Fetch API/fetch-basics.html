@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API - Basics</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 30px; background: #f4faf4; color: #333; }
+        pre { background: #fff; border: 1px solid #ddd; padding: 16px; border-radius: 8px; overflow: auto; }
+        button { background: #27ae60; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Fetch API - Fetching JSON</h1>
+    <button onclick="fetchUsers()">Fetch sample users</button>
+    <div id="out"><p>Click the button to call the API.</p></div>
+
+    <script>
+        async function fetchUsers() {
+            const out = document.getElementById('out');
+            out.textContent = 'Loading...';
+
+            try {
+                // fetch from the JSONPlaceholder public API
+                const response = await fetch('data/users.json');
+
+                // check the HTTP status
+                if (!response.ok) {
+                    throw new Error('HTTP error: ' + response.status);
+                }
+
+                // parse JSON body
+                const users = await response.json();
+
+                out.innerHTML = '<h2>Fetched ' + users.length + ' users</h2>' +
+                    users.slice(0, 3).map(u =>
+                        '<pre>' + JSON.stringify(u, null, 2) + '</pre>'
+                    ).join('');
+
+                console.log(users);
+            } catch (error) {
+                out.textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

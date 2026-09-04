@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+    padding: 40px;
+    color: #333;
+}
+
+.intro {
+    color: #777;
+    margin-top: 0;
+}
+
+.demo {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.item, .card, .flex-layout div, .grid-layout div {
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* 1. Toolbar with Flexbox */
+.toolbar-flex {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #2c3e50;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+/* 2. Card gallery with Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 12px;
+}
+
+.gallery-grid .card {
+    background: #f39c12;
+    color: #fff;
+    padding: 24px;
+}
+
+/* 3. Layout with Flexbox */
+.flex-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 240px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.flex-layout div { color: #fff; }
+
+.f-head, .f-foot {
+    background: #34495e;
+    padding: 14px;
+}
+
+.f-body {
+    display: flex;
+    flex: 1;
+}
+
+.f-side {
+    background: #7f8c8d;
+    width: 150px;
+    padding: 14px;
+}
+
+.f-main {
+    background: #ecf0f1;
+    color: #333;
+    flex: 1;
+    padding: 14px;
+}
+
+/* 4. Layout with Grid */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 60px 1fr 60px;
+    grid-template-areas:
+        "head head"
+        "side main"
+        "foot foot";
+    min-height: 280px;
+    gap: 2px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.grid-layout div { color: #fff; }
+
+.g-head  { grid-area: head;  background: #34495e; padding: 14px; }
+.g-side  { grid-area: side;  background: #7f8c8d; padding: 14px; }
+.g-main  { grid-area: main;  background: #ecf0f1; color: #333; padding: 14px; }
+.g-foot  { grid-area: foot;  background: #34495e; padding: 14px; }
+
+/* Comparison table */
+.compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(100% - 40px);
+}
+
+.compare th, .compare td {
+    padding: 12px 18px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.compare th {
+    background: #2c3e50;
+    color: #fff;
+}
+
+.compare td:first-child {
+    font-weight: 700;
+    background: #f8f8f8;
+}

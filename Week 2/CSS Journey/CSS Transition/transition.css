@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+    padding: 40px;
+    color: #333;
+}
+
+.hint {
+    color: #888;
+}
+
+.demo {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.box {
+    width: 120px;
+    height: 120px;
+    background: #3498db;
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+/* 1. Simple transition */
+.box-1 {
+    transition: background 0.4s ease, transform 0.4s ease;
+}
+
+.box-1:hover {
+    background: #e74c3c;
+    transform: scale(1.2) rotate(8deg);
+}
+
+/* 2. Timing functions */
+.ease {
+    width: 110px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px;
+    background: #9b59b6;
+    color: #fff;
+    font-size: 0.72rem;
+    border-radius: 6px;
+}
+
+.ease-linear  { transition: transform 0.8s linear; }
+.ease-ease    { transition: transform 0.8s ease; }
+.ease-in      { transition: transform 0.8s ease-in; }
+.ease-out     { transition: transform 0.8s ease-out; }
+.ease-inout   { transition: transform 0.8s ease-in-out; }
+
+.ease:hover {
+    transform: translateX(30px);
+}
+
+/* 3. Delay */
+.box-delay {
+    background: #2ecc71;
+    transition: transform 0.5s ease 0.3s;
+}
+
+.box-delay:hover {
+    transform: scale(1.15);
+}
+
+/* 4. Multiple properties/durations */
+.box-multi {
+    background: #e67e22;
+    transition: background 0.2s linear, transform 0.8s ease;
+}
+
+.box-multi:hover {
+    background: #c0392b;
+    transform: scale(1.3);
+}
