@@ -1,0 +1,13 @@
+const UserCard = ({ user, onRemove }) => {
+  return (
+    <article className="card">
+      <h3>{user.name}</h3>
+      <p className="role">{user.role}</p>
+      <button className="btn danger" onClick={() => onRemove(user.id)}>
+        Remove
+      </button>
+    </article>
+  );
+};
+
+export default UserCard;
