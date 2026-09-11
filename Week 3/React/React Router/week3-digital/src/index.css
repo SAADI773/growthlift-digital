@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #45475a;
+  padding-bottom: 1rem;
+}
+
+.nav a {
+  color: #a6adc8;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.nav a:hover {
+  color: #89b4fa;
+}
+
+.nav a.active {
+  color: #1e1e2e;
+  background: #89b4fa;
+}
+
+.main {
+  flex: 1;
+}
+
+h1 {
+  color: #89b4fa;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #a6adc8;
+  margin-bottom: 0.75rem;
+}
+
+a {
+  color: #a6e3a1;
+}
+
+code {
+  background: #313244;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  color: #f9e2af;
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filters button,
+button {
+  background: #45475a;
+  color: #cdd6f4;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.filters button:hover,
+button:hover {
+  background: #586078;
+}
+
+.posts {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.posts li {
+  margin: 0.5rem 0;
+}
+
+.footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #45475a;
+  color: #6c7086;
+  font-size: 0.9rem;
+}
