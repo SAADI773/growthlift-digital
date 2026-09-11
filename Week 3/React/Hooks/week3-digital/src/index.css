@@ -50,6 +50,36 @@ body {
   display: flex;
   gap: 0.75rem;
   justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #a6adc8;
+}
+
+.switch {
+  min-width: 5rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.switch.on {
+  background: #a6e3a1;
+  color: #1e1e2e;
+}
+
+.switch.off {
+  background: #45475a;
+  color: #cdd6f4;
 }
 
 .btn {
