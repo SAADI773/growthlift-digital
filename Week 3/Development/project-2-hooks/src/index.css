@@ -1,0 +1,19 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:system-ui,-apple-system,sans-serif; background:#0f172a; color:#e2e8f0; min-height:100vh; }
+.app { max-width:560px; margin:0 auto; padding:2rem 1.5rem; }
+header { text-align:center; margin-bottom:2rem; }
+h1 { color:#38bdf8; margin-bottom:0.4rem; }
+header p { color:#94a3b8; margin-bottom:1.5rem; }
+.card { background:#1e293b; border:1px solid #334155; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; }
+.card h2 { color:#a78bfa; margin-bottom:0.75rem; font-size:1.1rem; }
+.big { font-size:3rem; font-weight:700; color:#facc15; text-align:center; margin-bottom:1rem; }
+.row { display:flex; gap:0.5rem; justify-content:center; margin-bottom:0.75rem; }
+input { flex:1; padding:0.6rem 0.8rem; border-radius:8px; border:1px solid #475569; background:#0f172a; color:#e2e8f0; }
+button { padding:0.6rem 1.2rem; border-radius:8px; border:none; background:#38bdf8; color:#0f172a; font-weight:600; cursor:pointer; }
+button:hover { filter:brightness(1.1); }
+button.on { background:#4ade80; }
+button.off { background:#64748b; color:#f8fafc; }
+button.danger { background:#f87171; color:#450a0a; padding:0.4rem 0.7rem; }
+ul { list-style:none; }
+li { display:flex; justify-content:space-between; align-items:center; background:#0f172a; border-radius:8px; padding:0.6rem 0.9rem; margin-bottom:0.5rem; }
+.empty { color:#64748b; text-align:center; margin-top:0.5rem; }

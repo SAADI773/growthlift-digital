@@ -1,0 +1,16 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:system-ui,-apple-system,sans-serif; background:#0f172a; color:#e2e8f0; min-height:100vh; }
+.app { max-width:640px; margin:0 auto; padding:2rem 1.5rem; }
+header { text-align:center; margin-bottom:1.5rem; }
+h1 { color:#38bdf8; margin-bottom:0.4rem; }
+header p { color:#94a3b8; margin-bottom:1rem; }
+.count { text-align:center; color:#facc15; margin-bottom:1.25rem; }
+.form { display:flex; gap:0.5rem; margin-bottom:1.25rem; }
+input { flex:1; padding:0.6rem 0.8rem; border-radius:8px; border:1px solid #475569; background:#0f172a; color:#e2e8f0; }
+button { padding:0.6rem 1.2rem; border-radius:8px; border:none; background:#38bdf8; color:#0f172a; font-weight:600; cursor:pointer; }
+button:hover { filter:brightness(1.1); }
+button.danger { background:#f87171; color:#450a0a; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:1rem; }
+.card { background:#1e293b; border:1px solid #334155; border-radius:12px; padding:1.25rem; text-align:center; }
+.card h3 { color:#a78bfa; margin-bottom:0.25rem; }
+.card p { color:#94a3b8; margin-bottom:0.9rem; }
